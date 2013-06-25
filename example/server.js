@@ -1,5 +1,6 @@
 var express = require("express"),
 fs = require("fs"),
+path = require("path"),
 app = express();
 
 app.use(express.cookieParser());
@@ -37,12 +38,12 @@ app.use("/racer", require("../")({
 
 app.get("/require.js", function(req, res) {
   res.setHeader("Content-Type", "text/javascript");
-  res.end(fs.readFileSync("node_modules/requirejs/require.js", "utf8"));
+  res.end(fs.readFileSync(path.join("node_modules", "requirejs", "require.js"), "utf8"));
 });
 
 app.get("/", function(req, res) {
   res.setHeader("Content-Type", "text/html");
-  res.end(fs.readFileSync(__dirname + "/index.html", "utf8"));
+  res.end(fs.readFileSync(path.join(__dirname, "index.html"), "utf8"));
 });
 
 app.listen(3000);

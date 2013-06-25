@@ -1,6 +1,6 @@
 {
   "name": "racer-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A connect/express middleware for the Racer realtime model synchronization engine with support for routes and validation",
   "main": "index.js",
   "scripts": {
