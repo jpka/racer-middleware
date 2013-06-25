@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/require.js"></script>
+    <script>
+      require(["/racer"], function(racer) {
+        racer.load("/racer/count", function(model) {
+          var authenticated = model.get("_page.authenticated");
+
+          document.querySelector("#authenticated").innerHTML = authenticated;
+          document.querySelector("#log" + (authenticated ? "in" : "out")).style.display = "none";
+
+          document.querySelector("#number").innerHTML = model.get("collection.count") || 0;
+          model.on("change", "collection.count", function() {
+            document.querySelector("#number").innerHTML = model.get("collection.count");
+          });
+          window.model = model;
+        });
+      });
+
+      function add() {
+        var n = parseInt(document.querySelector("#number").innerHTML, 10);
+        n++;
+
+        model.set("collection.count", n);
+      }
+    </script>
+  </head>
+  <body>
+    <span>Authenticated: <span id="authenticated"></span></span>
+    |
+    <a href="/login" id="login">login</a>
+    <a href="/logout" id="logout">logout</a>
+    <div>
+      <span id="number">0</span>
+      <button id="add" onclick="add()">+</button>
+    </div>
+  </body>
+</html>

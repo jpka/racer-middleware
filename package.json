@@ -1,0 +1,23 @@
+{
+  "name": "racer-middleware",
+  "version": "0.0.1",
+  "description": "A connect/express middleware for the Racer realtime model synchronization engine with support for routes and validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git://github.com/jpka/racer-middleware.git",
+  "author": "Juan Pablo Kaniefsky",
+  "license": "MIT",
+  "devDependencies": {
+    "livedb-mongo": "~0.1.3",
+    "express": "~3.2.6",
+    "requirejs": "~2.1.6"
+  },
+  "dependencies": {
+    "racer-browserchannel": "git://github.com/codeparty/racer-browserchannel.git",
+    "racer": "~0.5.3",
+    "redis": "~0.8.3",
+    "node-uuid": "git://github.com/broofa/node-uuid.git"
+  }
+}
